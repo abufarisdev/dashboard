@@ -81,8 +81,8 @@ const App = () => {
 
                 {/* charts  */}
                 <Route path="/line" element={<Line />} />
-                <Route path="/area" element={<Area />} />
-                <Route path="/bar" element={<Bar />} />
+               
+                
                 <Route path="/pie" element={<Pie />} />
                 <Route path="/financial" element={<Financial />} />
                 <Route path="/color-mapping" element={<ColorMapping />} />
@@ -91,7 +91,6 @@ const App = () => {
 
               </Routes>
             </div>
-            <Footer />
           </div>
         </div>
       </BrowserRouter>

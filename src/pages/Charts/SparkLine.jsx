@@ -3,7 +3,7 @@ import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, Accu
 
 import { useStateContext } from '../../contexts/ContextProvider';
 
-const Pie = ({ id, data, legendVisiblity, height }) => {
+const Doughnut = ({ id, data, legendVisiblity, height }) => {
   const { currentMode } = useStateContext();
 
   return (
@@ -43,4 +43,4 @@ const Pie = ({ id, data, legendVisiblity, height }) => {
   );
 };
 
-export default Pie;
+export default Doughnut;

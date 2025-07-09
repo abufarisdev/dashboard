@@ -64,7 +64,7 @@ const Navbar = () => {
        />
       
        <NavButton 
-       title="Cart"
+       title="Chat"
        dotColor= '#03C9D7'
        customFunc={() => handleClick ('chat')}
        color="blue" 
