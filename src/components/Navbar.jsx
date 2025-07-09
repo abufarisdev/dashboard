@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { FiShoppingBag, FiShoppingCart } from 'react-icons/fi'
 import { BsChatLeft } from 'react-icons/bs'
@@ -15,9 +15,9 @@ const NavButton = ({title, customFunc, icon, color, dotColor}) => (
   className='relative text-xl rounded-full p-3 hover:bg-light-gray'
   >
   <span style={{background:dotColor}}
- className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2">
+ className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"/>
    {icon}
-  </span>
+  
 
   </button>
 
@@ -25,11 +25,28 @@ const NavButton = ({title, customFunc, icon, color, dotColor}) => (
 
 )
 
-
 const Navbar = () => {
- const { activeMenu, setActiveMenu, handleClick, isClicked, setIsClicked} =
-useStateContext();
+  const { currentColor, activeMenu, setActiveMenu, handleClick, isClicked, setScreenSize, screenSize, setCurrentColor } = useStateContext();
 
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+// detects size of the screen and flexes navbar accordingly
+  useEffect(() => {
+    if (screenSize <= 900) {
+      setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
+    }
+  }, [screenSize]);
+
+  const handleActiveMenu = () => setActiveMenu(!activeMenu);
 
 
   return (
